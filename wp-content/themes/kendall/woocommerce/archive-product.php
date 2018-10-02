@@ -27,159 +27,61 @@ get_header( 'shop' );
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 do_action( 'woocommerce_before_main_content' );
-
+wp_enqueue_style(
+    'main',
+    get_template_directory_uri().'/main.css',
+    array(),
+    null
+);
+//wp_enqueue_style( 'main.min1',get_template_directory_uri());
 ?>
+
 <section>
 		
 		<div class="oil">
 			<div class="container">
-                123
 				<h1><?php woocommerce_page_title(); ?></h1>
 				<p class="about_oil"><?do_action( 'woocommerce_archive_description' );?></p>
 			</div>
 			<?php
 			woocommerce_product_loop_start();
+			?>
+            <div class="slider">
+                <img class="product_BG" src="img/product_BG.png" alt="">
+                <div class="container">
+                    <div class="slider_nav">
+                        <p class="oil_name">Syntetic blend</p>
+                        <button class="prev_1"><</button>
+                        <button class="next_1">></button>
+                    </div>
+                    <div class="slider_img_1">
+                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
+                            <p class="oil_type">Синтетическое моторное масло</p>
+                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
+                        </div>
+                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
+                            <p class="oil_type">Синтетическое моторное масло</p>
+                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
+                        </div>
+                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
+                            <p class="oil_type">Синтетическое моторное масло</p>
+                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
+                        </div>
+                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
+                            <p class="oil_type">Синтетическое моторное масло</p>
+                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			if ( wc_get_loop_prop( 'total' ) ) {
-				while ( have_posts() ) {
-					the_post();
-		
-					/**
-					 * Hook: woocommerce_shop_loop.
-					 *
-					 * @hooked WC_Structured_Data::generate_product_data() - 10
-					 */
-					do_action( 'woocommerce_shop_loop' );
-		
-					wc_get_template_part( 'content', 'product' );
-				}
-			}
-		
-			woocommerce_product_loop_end();
+<?php	woocommerce_product_loop_end();
 			
 			
 			?>
-			<div class="slider">
-				<img class="product_BG" src="img/product_BG.png" alt="">
-				<div class="container">
-					<div class="slider_nav">
-						<p class="oil_name">Syntetic blend</p>
-						<button class="prev_1"><</button>
-						<button class="next_1">></button>
-				</div>
-					<div class="slider_img_1">
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt="">
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="slider">
-				<img class="product_BG" src="img/product_BG.png" alt="">
-				<div class="container">
-					<div class="slider_nav">
-						<p class="oil_name">Syntetic blend</p>
-						<button class="prev_2"><</button>
-						<button class="next_2">></button>
-				</div>
-					<div class="slider_img_2">
-						<div class="oil_img">
-							<img src="img/kend_prod_1.png" alt=""> 
-							<p class="oil_type">Синтетическое моторное масло</p>
-							<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img">
-							<img src="img/kend_prod_1.png" alt=""> 
-							<p class="oil_type">Синтетическое моторное масло</p>
-							<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img">
-							<img src="img/kend_prod_1.png" alt="">
-							<p class="oil_type">Синтетическое моторное масло</p>
-							<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img">
-							<img src="img/kend_prod_1.png" alt=""> 
-							<p class="oil_type">Синтетическое моторное масло</p>
-							<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="slider">
-				<img class="product_BG" src="img/product_BG.png" alt="">
-				<div class="container">
-					<div class="slider_nav">
-						<p class="oil_name">Syntetic blend</p>
-						<button class="prev_3"><</button>
-						<button class="next_3">></button>
-				</div>
-					<div class="slider_img_3">
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt="">
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="slider">
-				<img class="product_BG" src="img/product_BG.png" alt="">
-				<div class="container">
-					<div class="slider_nav">
-						<p class="oil_name">Syntetic blend</p>
-						<button class="prev_4"><</button>
-						<button class="next_4">></button>
-				</div>
-					<div class="slider_img_4">
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt="">
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-						<div class="oil_img"><img src="img/kend_prod_1.png" alt=""> 
-						<p class="oil_type">Синтетическое моторное масло</p>
-						<p class="oil_name_slider">Kendall GT-1 Endurens</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
 
 		</div>
 
