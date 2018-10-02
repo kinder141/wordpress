@@ -1,0 +1,6 @@
+2018-09-15T13:25:04+00:00 CRITICAL Allowed memory size of 67108864 bytes exhausted (tried to allocate 934681 bytes)
+
+2018-09-15T13:26:43+00:00 CRITICAL Allowed memory size of 67108864 bytes exhausted (tried to allocate 551202 bytes)
+
+2018-09-15T13:27:16+00:00 CRITICAL Allowed memory size of 67108864 bytes exhausted (tried to allocate 1366679 bytes)
+

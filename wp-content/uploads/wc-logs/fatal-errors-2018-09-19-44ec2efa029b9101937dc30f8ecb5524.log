@@ -1,0 +1,31 @@
+2018-09-19T10:47:01+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\single-product\add-to-cart\external.php:25
+Stack trace:
+#0 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include()
+#1 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1564): wc_get_template('single-product/...', Array)
+#2 E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\content-single-product.php(46): woocommerce_external_add_to_cart()
+#3 E:\OSPanel\domains\oil\wp-includes\template.php(690): require('E:\\OSPanel\\doma...')
+#4 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-core-functions.php(179): load_template('E:\\OSPanel\\doma...', false)
+#5 E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\single-product.php(4): wc_get_template_part('content', 'single-product')
+#6 E:\OSPanel\domains\oil\wp-includes\template-loader.php(74): include('E:\\OSPanel\\doma...')
+#7 E:\
+
+2018-09-19T10:58:26+00:00 CRITICAL Uncaught Error: Call to a member function get_permalink() on null in E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\single-product\add-to-cart\external.php:22
+Stack trace:
+#0 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include()
+#1 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1564): wc_get_template('single-product/...', Array)
+#2 E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\content-single-product.php(46): woocommerce_external_add_to_cart()
+#3 E:\OSPanel\domains\oil\wp-includes\template.php(690): require('E:\\OSPanel\\doma...')
+#4 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-core-functions.php(179): load_template('E:\\OSPanel\\doma...', false)
+#5 E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\single-product.php(4): wc_get_template_part('content', 'single-product')
+#6 E:\OSPanel\domains\oil\wp-includes\template-loader.php(74): include('E:\\OSPanel\\doma...')
+
+2018-09-19T10:58:54+00:00 CRITICAL Uncaught Error: Call to a member function get_permalink() on null in E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\single-product\add-to-cart\external.php:22
+Stack trace:
+#0 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include()
+#1 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1564): wc_get_template('single-product/...', Array)
+#2 E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\content-single-product.php(46): woocommerce_external_add_to_cart()
+#3 E:\OSPanel\domains\oil\wp-includes\template.php(690): require('E:\\OSPanel\\doma...')
+#4 E:\OSPanel\domains\oil\wp-content\plugins\woocommerce\includes\wc-core-functions.php(179): load_template('E:\\OSPanel\\doma...', false)
+#5 E:\OSPanel\domains\oil\wp-content\themes\kendall\woocommerce\single-product.php(4): wc_get_template_part('content', 'single-product')
+#6 E:\OSPanel\domains\oil\wp-includes\template-loader.php(74): include('E:\\OSPanel\\doma...')
+

@@ -1,0 +1,8 @@
+2018-09-18T00:36:08+00:00 CRITICAL Call to undefined function wc_get_product_term()
+
+2018-09-18T01:29:00+00:00 CRITICAL Call to undefined method WC_Product_Simple::get_available_variations()
+
+2018-09-18T01:29:28+00:00 CRITICAL Call to undefined method WC_Product_Simple::get_available_variations()
+
+2018-09-18T01:29:50+00:00 CRITICAL Call to undefined method WC_Product_Simple::get_available_variations()
+
