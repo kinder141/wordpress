@@ -36,29 +36,23 @@ wp_enqueue_style(
 
 
 $parentid = get_queried_object_id();
+var_dump($parentid);
 $args = array(
     'parent' => $parentid
 );
 $terms = get_terms( 'product_cat', $args );
-$args = array(
-// Использование аргумента tax_query для установки параметров терминов таксономии
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'product_cat',
-            'terms' => array(24),
-            'include_children '=>true
-        ),
-        'posts_per_page' => 4, // количество выводимых товаров
-    ));
-$query = new WP_Query( $args );
+
+
 ?>
-<pre>
+<!--<pre>-->
 <?php
+//
+//var_dump($terms);
+//?>
+<!---->
+<!--</pre>-->
 
-var_dump($query);
-?>
 
-</pre>
 <section>
 		
 		<div class="oil">
@@ -67,76 +61,52 @@ var_dump($query);
 				<p class="about_oil"><?do_action( 'woocommerce_archive_description' );?></p>
 			</div>
 			<?php
-			woocommerce_product_loop_start();
+            wp_reset_query();
             if ( $terms ) {
-                foreach ( $terms as $term ) {
-                    echo'<div class="slider">
-                            <img class="product_BG" src="img/product_BG.png" alt="">
+                $count =0;
+                foreach ( $terms as $term ) {// var_dump($term);
+                    //echo $count;
+                    echo '<div class="slider">
+                            <img class="product_BG" src="/wp-content/themes/kendall/img/product_BG.png" alt="">
                             <div class="container">
                                 <div class="slider_nav">
-                                <p class="oil_name">'.$term->name.'</p>
+                                <p class="oil_name">' . $term->name . '</p>
                                 <button class="prev_1"><</button>
                                 <button class="next_1">></button>
-                            </div>';
+                            </div>
+                                <div class="slider_img_1">';
+                                    $args = array(
+                                        'tax_query' => array(
+                                            array(
+                                                'taxonomy' => 'product_cat',
+                                                'field' => array(
+                                                    'term_id' => $term->term_id
+                                                ),
+                                                'terms' => array($term->term_id),
+                                                'post_type' => 'product'
+                                            )
+                                            // количество выводимых товаров
+                                        ));
+                                    $the_query = new WP_Query($args);
+                                    if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post();
+                                        ?>
+                                        <div class="oil_img">
+                                            <img src="img/kend_prod_1.png" alt="">
+                                            <p class="oil_type" style="color:black"><?=$the_query->post->post_title?></p>
+                                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
+                                        </div>
+                                        <?php
 
-//                    foreach ( $product_categories as $product)
-//                    {
-//
-//                    }
-
-                    echo '<li class="category">';
-                    woocommerce_subcategory_thumbnail( $term );
-                    echo '<h2>';
-                    echo '<a href="' .  esc_url( get_term_link( $term ) ) . '" class="' . $term->slug . '">';
-                    echo $term->name;
-                    echo '</a>';
-                    echo '</h2>';
-                    echo '</li>';
+                                    endwhile;
+                                    endif;
+                                echo '</div>';
+                    wp_reset_postdata();
+                    wp_reset_query();
+                    echo '</div></div>';
                 }
-                echo '</ul>';
             }
-
-			?>
-            <div class="slider">
-                <img class="product_BG" src="img/product_BG.png" alt="">
-                <div class="container">
-                    <div class="slider_nav">
-                        <p class="oil_name">Syntetic blend</p>
-                        <button class="prev_1"><</button>
-                        <button class="next_1">></button>
-                    </div>
-                    <div class="slider_img_1">
-                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
-                            <p class="oil_type">Синтетическое моторное масло</p>
-                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
-                        </div>
-                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
-                            <p class="oil_type">Синтетическое моторное масло</p>
-                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
-                        </div>
-                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
-                            <p class="oil_type">Синтетическое моторное масло</p>
-                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
-                        </div>
-                        <div class="oil_img"><img src="img/kend_prod_1.png" alt="">
-                            <p class="oil_type">Синтетическое моторное масло</p>
-                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-<?php	woocommerce_product_loop_end();
-			
-			
-			?>
-
-
-
-
-		</div>
-
-	</section>
+            ?>
+    </section>
 
 	<section>
 		
