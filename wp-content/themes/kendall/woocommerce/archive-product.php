@@ -33,8 +33,32 @@ wp_enqueue_style(
     array(),
     null
 );
+
+
+$parentid = get_queried_object_id();
+$args = array(
+    'parent' => $parentid
+);
+$terms = get_terms( 'product_cat', $args );
+$args = array(
+// Использование аргумента tax_query для установки параметров терминов таксономии
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_cat',
+            'terms' => array(24),
+            'include_children '=>true
+        ),
+        'posts_per_page' => 4, // количество выводимых товаров
+    ));
+$query = new WP_Query( $args );
+?>
+<pre>
+<?php
+
+var_dump($query);
 ?>
 
+</pre>
 <section>
 		
 		<div class="oil">
@@ -44,15 +68,22 @@ wp_enqueue_style(
 			</div>
 			<?php
 			woocommerce_product_loop_start();
-
-            $parentid = get_queried_object_id();
-            $args = array(
-                'parent' => $parentid
-            );
-            $terms = get_terms( 'product_cat', $args );
             if ( $terms ) {
-                echo '<ul class="product-cats">';
                 foreach ( $terms as $term ) {
+                    echo'<div class="slider">
+                            <img class="product_BG" src="img/product_BG.png" alt="">
+                            <div class="container">
+                                <div class="slider_nav">
+                                <p class="oil_name">'.$term->name.'</p>
+                                <button class="prev_1"><</button>
+                                <button class="next_1">></button>
+                            </div>';
+
+//                    foreach ( $product_categories as $product)
+//                    {
+//
+//                    }
+
                     echo '<li class="category">';
                     woocommerce_subcategory_thumbnail( $term );
                     echo '<h2>';
