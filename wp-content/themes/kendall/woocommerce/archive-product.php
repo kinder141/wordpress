@@ -51,7 +51,31 @@ $terms = get_terms( 'product_cat', $args );
 //?>
 <!---->
 <!--</pre>-->
+<script>
+    $(document).ready(function () {
 
+
+    $('.slider_img_1').slick({
+        infinite: true,
+        slidesToShow: 2,
+        autoplay: true,
+        autoplaySpeed: 8200,
+        speed: 700,
+        slidesToScroll: 1,
+        prevArrow: $('.prev_1'),
+        nextArrow: $('.next_1'),
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
+    });
+</script>
 
 <section>
 		
@@ -90,10 +114,11 @@ $terms = get_terms( 'product_cat', $args );
                                     $the_query = new WP_Query($args);
                                     if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post();
                                         ?>
+
                                         <div class="oil_img">
-                                            <img src="img/kend_prod_1.png" alt="">
-                                            <p class="oil_type" style="color:black"><?=$the_query->post->post_title?></p>
-                                            <p class="oil_name_slider">Kendall GT-1 Endurens</p>
+                                            <?=get_the_post_thumbnail($the_query->post->id)?>
+                                            <p class="oil_type" style="color:black"></p>
+                                            <p class="oil_name_slider"><?=$the_query->post->post_title?></p>
                                         </div>
                                         <?php
 
