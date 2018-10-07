@@ -31,13 +31,14 @@ if ( $upsells ) : ?>
 			<?php foreach ( $upsells as $upsell ) : ?>
 
 				<?php
+                echo '<div class="slide">';
 					$post_object = get_post( $upsell->get_id() );
 
 					setup_postdata( $GLOBALS['post'] =& $post_object );
 
 					wc_get_template_part( 'content', 'product' ); ?>
 
-			<?php endforeach; ?>
+			<?php echo '</div>';endforeach; ?>
 
 		<?php woocommerce_product_loop_end(); ?>
 

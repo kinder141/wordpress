@@ -26,7 +26,11 @@ get_header( 'shop' );
  * @hooked woocommerce_breadcrumb - 20
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
-do_action( 'woocommerce_before_main_content' );
+?>
+<nav class="woocommerce-breadcrumb"><a href="http://oil">Главная</a>&nbsp;/&nbsp;<a href="http://oil/продукция">Продукция</a>&nbsp;/&nbsp;<? woocommerce_page_title();?></nav>
+<?php
+//do_action( 'woocommerce_before_main_content' );
+
 wp_enqueue_style(
     'main',
     get_template_directory_uri().'/main.css',
@@ -36,7 +40,6 @@ wp_enqueue_style(
 
 
 $parentid = get_queried_object_id();
-var_dump($parentid);
 $args = array(
     'parent' => $parentid
 );
@@ -44,13 +47,7 @@ $terms = get_terms( 'product_cat', $args );
 
 
 ?>
-<!--<pre>-->
-<?php
-//
-//var_dump($terms);
-//?>
-<!---->
-<!--</pre>-->
+
 <script>
     $(document).ready(function () {
 
@@ -114,9 +111,8 @@ $terms = get_terms( 'product_cat', $args );
                                     $the_query = new WP_Query($args);
                                     if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post();
                                         ?>
-
                                         <div class="oil_img">
-                                            <?=get_the_post_thumbnail($the_query->post->id)?>
+                                            <a href="<?=$the_query->post->guid?>"> <?=get_the_post_thumbnail($the_query->post->id)?></a>
                                             <p class="oil_type" style="color:black"></p>
                                             <p class="oil_name_slider"><?=$the_query->post->post_title?></p>
                                         </div>
